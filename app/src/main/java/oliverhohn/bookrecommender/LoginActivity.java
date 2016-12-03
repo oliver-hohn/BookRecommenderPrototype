@@ -62,8 +62,9 @@ public class LoginActivity extends Activity  {
         });
     }
 
-    private boolean verifyPassword(String username, String password){
-        return username.equals("harrypotter") && password.equals("1234");
+    private boolean verifyPassword(String username, String password){//commented out to move onto HomeActivity faster
+        //return username.equals("harrypotter") && password.equals("1234");
+        return true;
     }
 
     private void showToast(String message){

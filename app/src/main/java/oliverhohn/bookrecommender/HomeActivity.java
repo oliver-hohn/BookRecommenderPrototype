@@ -19,7 +19,8 @@ public class HomeActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        getSupportActionBar().setTitle("Logged In as:");
+        getSupportActionBar().setSubtitle("Oliver Hohn @ Maughan Library");
     }
 
     @Override
