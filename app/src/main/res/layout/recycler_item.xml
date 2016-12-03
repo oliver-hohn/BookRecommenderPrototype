@@ -18,7 +18,8 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
         android:id="@+id/textView5"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/colorPrimaryText" />
 
     <Space
         android:layout_width="20px"
