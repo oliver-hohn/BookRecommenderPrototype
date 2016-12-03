@@ -1,6 +1,7 @@
 package oliverhohn.bookrecommender;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -37,6 +38,7 @@ public class LoginActivity extends Activity  {
                 if(verifyPassword(usernameTextView.getText().toString(), passwordTextView.getText().toString())){
                     //Can move onto home page
                     Log.d(TAG, "Moving onto home page");
+                    startActivity(new Intent(getApplicationContext(),HomeActivity.class));
                 }
             }
         });

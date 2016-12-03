@@ -4,4 +4,5 @@
     <string name="forgot_pass"><u>Forgot your password?</u></string>
     <string name="register"><u>Don\'t have an account? Register</u></string>
     <string name="title_activity_home">Home</string>
+    <string name="action_basket">Basket</string>
 </resources>
