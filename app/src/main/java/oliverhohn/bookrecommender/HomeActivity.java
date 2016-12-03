@@ -46,15 +46,17 @@ public class HomeActivity extends AppCompatActivity
 
     private void setReferences(){
         TextView searchView = (TextView) findViewById(R.id.searchTextView);
+
         RecyclerView recyclerView1 = (RecyclerView) findViewById(R.id.recyclerView);
         RecyclerView recyclerView2 = (RecyclerView) findViewById(R.id.recyclerView2);
         //handle enter pressed in search view.
         //set recycler view
         ArrayList<Book> books = new ArrayList<>();
         books.add(new Book(R.drawable.book1, "Harry Potter and the\n Philosopher's Stone"));
-        books.add(new Book(R.drawable.book1, "Harry Potter and the\n Chamber of Secrets"));
-        books.add(new Book(R.drawable.book1, "Harry Potter and the\n  Prisoner of Azkaban"));
-
+        books.add(new Book(R.drawable.book2, "Harry Potter and the\n Chamber of Secrets"));
+        books.add(new Book(R.drawable.book3, "Harry Potter and the\n Half Blood Prince"));
+        books.add(new Book(R.drawable.book4, "Harry Potter and the\n Prisoner of Azkaban"));
+        books.add(new Book(R.drawable.book5, "The Penguin History of the\n United States of America"));
         MyRecyclerAdapter myRecyclerAdapter = new MyRecyclerAdapter(books);
         recyclerView1.setAdapter(myRecyclerAdapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
