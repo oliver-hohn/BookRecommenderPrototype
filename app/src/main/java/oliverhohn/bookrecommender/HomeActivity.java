@@ -11,6 +11,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class HomeActivity extends AppCompatActivity
@@ -23,6 +25,8 @@ public class HomeActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        getSupportActionBar().setTitle("Logged In as:");
+        getSupportActionBar().setSubtitle("Oliver Hohn @ Maughan Library");
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -32,6 +36,13 @@ public class HomeActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        setReferences();
+    }
+
+    private void setReferences(){
+        TextView searchView = (TextView) findViewById(R.id.searchTextView);
+        //handle enter pressed in search view.
     }
 
     @Override
@@ -98,5 +109,15 @@ public class HomeActivity extends AppCompatActivity
 
     private void showToast(String message){
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+    }
+
+    public void onFilterPressed(View view){
+        Log.d(TAG, "Pressed Filter");
+    }
+    public void onBarcodePressed(View view){
+        Log.d(TAG, "Pressed Barcode");
+    }
+    public void onSearchPressed(View view){
+        Log.d(TAG, "Pressed Search");
     }
 }
