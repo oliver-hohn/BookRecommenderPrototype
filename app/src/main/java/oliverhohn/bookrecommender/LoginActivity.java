@@ -6,8 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
+import android.widget.Toast;
 
 /**
  * A login screen that offers login via email/password.
@@ -34,11 +33,39 @@ public class LoginActivity extends Activity  {
         loginButtonView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG,"Clicked login button, with username text: "+usernameTextView.getText()+ " and password text: "+passwordTextView.getText());
+                Log.d(TAG, "Clicked login button, with username text: "+usernameTextView.getText()+ " and password text: "+passwordTextView.getText());
+                if(verifyPassword(usernameTextView.getText().toString(), passwordTextView.getText().toString())){
+                    //Can move onto home page
+                    Log.d(TAG, "Moving onto home page");
+                }
+            }
+        });
+
+        TextView forgotTextView = (TextView) findViewById(R.id.forgotTextView);
+        forgotTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "Clicked on Forgot Password Text");
+                showToast("Feature coming soon.");
+            }
+        });
+
+        TextView registerTextView = (TextView) findViewById(R.id.registerTextView);
+        registerTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "Clicked on Register Text");
+                showToast("Feature coming soon.");
             }
         });
     }
 
+    private boolean verifyPassword(String username, String password){
+        return username.equals("harrypotter") && password.equals("1234");
+    }
 
+    private void showToast(String message){
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+    }
 }
 
