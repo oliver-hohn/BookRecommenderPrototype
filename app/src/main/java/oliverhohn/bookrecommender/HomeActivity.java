@@ -11,6 +11,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private static final String TAG = "HomeActivity";
+    private TextView searchView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,8 +47,18 @@ public class HomeActivity extends AppCompatActivity
     }
 
     private void setReferences(){
-        TextView searchView = (TextView) findViewById(R.id.searchTextView);
-
+        searchView = (TextView) findViewById(R.id.searchTextView);
+        searchView.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View view, int i, KeyEvent keyEvent) {
+                if(keyEvent.getAction() == KeyEvent.ACTION_DOWN && i == KeyEvent.KEYCODE_ENTER){
+                    searchFor(searchView.getText().toString());
+                    //search for given text
+                    return true;
+                }
+                return false;
+            }
+        });
         RecyclerView recyclerView1 = (RecyclerView) findViewById(R.id.recyclerView);
         RecyclerView recyclerView2 = (RecyclerView) findViewById(R.id.recyclerView2);
         //handle enter pressed in search view.
@@ -150,11 +162,19 @@ public class HomeActivity extends AppCompatActivity
 
     public void onFilterPressed(View view){
         Log.d(TAG, "Pressed Filter");
+        showToast("Coming soon");
     }
     public void onBarcodePressed(View view){
         Log.d(TAG, "Pressed Barcode");
+        showToast("Coming soon");
     }
     public void onSearchPressed(View view){
         Log.d(TAG, "Pressed Search");
+        searchFor(searchView.getText().toString());
+    }
+
+    private void searchFor(String search){
+        Log.d(TAG, "Search for: "+search);
+        //go to result page with results for search
     }
 }
