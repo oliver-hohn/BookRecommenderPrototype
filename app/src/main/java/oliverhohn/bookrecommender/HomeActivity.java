@@ -7,6 +7,8 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -14,6 +16,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -42,7 +46,38 @@ public class HomeActivity extends AppCompatActivity
 
     private void setReferences(){
         TextView searchView = (TextView) findViewById(R.id.searchTextView);
+        RecyclerView recyclerView1 = (RecyclerView) findViewById(R.id.recyclerView);
+        RecyclerView recyclerView2 = (RecyclerView) findViewById(R.id.recyclerView2);
         //handle enter pressed in search view.
+        //set recycler view
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(new Book(R.drawable.book1, "Harry Potter and the\n Philosopher's Stone"));
+        books.add(new Book(R.drawable.book1, "Harry Potter and the\n Chamber of Secrets"));
+        books.add(new Book(R.drawable.book1, "Harry Potter and the\n  Prisoner of Azkaban"));
+
+        MyRecyclerAdapter myRecyclerAdapter = new MyRecyclerAdapter(books);
+        recyclerView1.setAdapter(myRecyclerAdapter);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerView1.setLayoutManager(linearLayoutManager);
+
+        ItemClickSupport.addTo(recyclerView1).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+            @Override
+            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                Log.d(TAG, "Pressed item at position: "+position);
+            }
+        });
+
+        recyclerView2.setAdapter(myRecyclerAdapter);
+        LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+
+        recyclerView2.setLayoutManager(linearLayoutManager2);
+
+        ItemClickSupport.addTo(recyclerView2).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+            @Override
+            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                Log.d(TAG, "Pressed item at position: "+position);
+            }
+        });
     }
 
     @Override
