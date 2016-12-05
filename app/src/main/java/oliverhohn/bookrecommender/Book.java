@@ -3,7 +3,7 @@ package oliverhohn.bookrecommender;
 /**
  * Created by Oliver on 03/12/2016.
  */
-public class Book {
+public class Book {//TODO:author,description
     private int image;
     private String title;
 
