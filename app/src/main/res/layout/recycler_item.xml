@@ -10,7 +10,11 @@
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.5"
         android:visibility="visible"
-        android:paddingTop="16dp" />
+        android:paddingTop="16dp"
+        android:maxHeight="200dp"
+        android:maxWidth="250dp"
+        android:minHeight="200dp"
+        android:minWidth="250dp"/>
 
     <TextView
         android:layout_width="wrap_content"
