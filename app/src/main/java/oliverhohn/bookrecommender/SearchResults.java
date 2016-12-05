@@ -65,9 +65,9 @@ public class SearchResults extends AppCompatActivity
         }
         TextView resultfor = (TextView) findViewById(R.id.resultForView);
         if(books.size() > 0) {
-            resultfor.setText("Results for: "+searched+"...");
+            resultfor.setText("Results for: "+searched+"... "+"("+books.size()+" Results)");
         }else{
-            resultfor.setText("Results for: "+searched+"...\nSeems like there are no books that match");
+            resultfor.setText("Results for: "+searched+"... (0 Results)\nSeems like there are no books that match");
         }
         searchView = (TextView) findViewById(R.id.searchTextView);
         searchView.setText(searched);
