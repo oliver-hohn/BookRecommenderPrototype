@@ -10,11 +10,14 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Scroller;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,6 +50,11 @@ public class ReviewActivity extends AppCompatActivity
         Intent intent = getIntent();
         TextView backTextView = (TextView) findViewById(R.id.backTextView);
         TextView givingTextView = (TextView) findViewById(R.id.givingReviewForView);
+        EditText editText = (EditText) findViewById(R.id.editText2);
+        editText.setScroller(new Scroller(getApplicationContext()));
+
+        editText.setVerticalScrollBarEnabled(true);
+        editText.setMovementMethod(new ScrollingMovementMethod());
         if(intent != null){
             String from = intent.getStringExtra("fromBook");
             if(from != null){
