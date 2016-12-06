@@ -64,6 +64,7 @@ public class ProductActivity extends AppCompatActivity
         TextView description = (TextView) findViewById(R.id.descriptionTextView);
         ImageView bookImage = (ImageView) findViewById(R.id.bookImageView);
         description.setMovementMethod(new ScrollingMovementMethod());
+        TextView backTextView = (TextView) findViewById(R.id.backTextView);
 
         ScrollView parentScrollView = (ScrollView) findViewById(R.id.parentScrollView);
         parentScrollView.setOnTouchListener(new View.OnTouchListener() {
@@ -101,6 +102,12 @@ public class ProductActivity extends AppCompatActivity
             bookImage.setImageResource(book.getImage());
             author.setText(Html.fromHtml("from: <u>"+book.getAuthor()+"<u>"));
             description.setText(book.getDescription());
+            String result = intent.getStringExtra("from");
+            if(result.equals("HomeActivity")){
+                backTextView.setText(Html.fromHtml("Back"));
+            }else if(result.equals("SearchActivity")){
+                backTextView.setText(Html.fromHtml("Back to Results"));
+            }
         }
 
 

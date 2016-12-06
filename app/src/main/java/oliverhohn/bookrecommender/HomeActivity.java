@@ -180,6 +180,7 @@ public class HomeActivity extends AppCompatActivity
         Log.d(TAG, "Search for: "+search);
         Intent intent = new Intent(getApplicationContext(), SearchResults.class);
         intent.putExtra("search",search);
+
         startActivity(intent);
         //go to result page with results for search
     }
@@ -187,6 +188,7 @@ public class HomeActivity extends AppCompatActivity
     private void openProduct(int position){
         Intent intent = new Intent(getApplicationContext(), ProductActivity.class);
         intent.putExtra("position",position);
+        intent.putExtra("from","HomeActivity");
         startActivity(intent);
     }
 }

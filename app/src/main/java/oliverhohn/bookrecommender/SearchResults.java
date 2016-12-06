@@ -201,6 +201,7 @@ public class SearchResults extends AppCompatActivity
     private void openProduct(int position){
         Intent intent = new Intent(getApplicationContext(), ProductActivity.class);
         intent.putExtra("position",position);
+        intent.putExtra("from","SearchResults");
         startActivity(intent);
     }
 }
