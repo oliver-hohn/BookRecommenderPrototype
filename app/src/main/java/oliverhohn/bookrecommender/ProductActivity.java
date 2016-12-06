@@ -72,7 +72,6 @@ public class ProductActivity extends AppCompatActivity
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                Log.v(TAG, "PARENT TOUCH");
 
                 findViewById(R.id.descriptionTextView).getParent()
                         .requestDisallowInterceptTouchEvent(false);
@@ -84,7 +83,6 @@ public class ProductActivity extends AppCompatActivity
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                Log.v(TAG, "CHILD TOUCH");
 
                 // Disallow the touch request for parent scroll on touch of  child view
                 v.getParent().requestDisallowInterceptTouchEvent(true);
