@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +35,7 @@ public class MyRecyclerAdapterSearch extends  RecyclerView.Adapter<MyRecyclerAda
 
     @Override
     public MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_search_item, null);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_search_result, null);
         MyHolder myHolder = new MyHolder(v);
         return myHolder;
     }
@@ -44,6 +45,7 @@ public class MyRecyclerAdapterSearch extends  RecyclerView.Adapter<MyRecyclerAda
         Book book = books.get(position);
         if (book != null){
             holder.bookTitleView.setText(Html.fromHtml("<u>"+book.getTitle()+"</u>"));
+            Log.d("SearchAdapter",": "+holder.bookTitleView.getText());
             holder.authorView.setText(Html.fromHtml("from: <u>J.K. Rowling</u>"));
             holder.bookImageView.setImageResource(book.getImage());
             holder.bookTitleView.setOnClickListener(new View.OnClickListener() {
@@ -76,7 +78,7 @@ public class MyRecyclerAdapterSearch extends  RecyclerView.Adapter<MyRecyclerAda
                     onClickListener.lookAtPressed(view, position);
                 }
             });
-            holder.descriptionView.setText("dasdsadsadasdsadsadsadsad\ndsadsadsadsadasdsad\ndsadsadasdsa");
+            holder.descriptionView.setText(book.getDescription());
         }
     }
 
@@ -95,12 +97,12 @@ public class MyRecyclerAdapterSearch extends  RecyclerView.Adapter<MyRecyclerAda
 
         public MyHolder(View itemView) {
             super(itemView);
-            bookImageView = (ImageView) itemView.findViewById(R.id.bookImageView);
-            bookTitleView = (TextView) itemView.findViewById(R.id.titleView);
-            authorView = (TextView) itemView.findViewById(R.id.fromView);
-            descriptionView = (TextView) itemView.findViewById(R.id.descriptionView);
-            lookAtText = (TextView) itemView.findViewById(R.id.lookAtTextView);
-            lookAtIcon = (ImageView) itemView.findViewById(R.id.imageView6);
+               bookImageView = (ImageView) itemView.findViewById(R.id.bookImageView);
+                bookTitleView = (TextView) itemView.findViewById(R.id.titleView);
+                authorView = (TextView) itemView.findViewById(R.id.fromView);
+                descriptionView = (TextView) itemView.findViewById(R.id.descriptionView);
+                lookAtText = (TextView) itemView.findViewById(R.id.lookAtTextView);
+                lookAtIcon = (ImageView) itemView.findViewById(R.id.lookAtImageView);
         }
     }
 }

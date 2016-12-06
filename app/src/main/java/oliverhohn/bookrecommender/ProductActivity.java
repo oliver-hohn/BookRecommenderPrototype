@@ -61,7 +61,7 @@ public class ProductActivity extends AppCompatActivity
         TextView author = (TextView) findViewById(R.id.authorTextView);
         TextView description = (TextView) findViewById(R.id.descriptionTextView);
         ImageView bookImage = (ImageView) findViewById(R.id.bookImageView);
-
+        description.setMovementMethod(new ScrollingMovementMethod());
 
         addBasket.setPaintFlags(addBasket.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         writeReview.setPaintFlags(writeReview.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
@@ -103,7 +103,12 @@ public class ProductActivity extends AppCompatActivity
             }
         }, getApplicationContext());
         recyclerView.setAdapter(myRecyclerAdapterReview);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false){
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        };
         recyclerView.setLayoutManager(linearLayoutManager);
         ItemClickSupport.addTo(recyclerView).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
