@@ -28,5 +28,6 @@
     <Space
         android:layout_width="20px"
         android:layout_height="20px"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:scrollHorizontally="false"/>
 </LinearLayout>
