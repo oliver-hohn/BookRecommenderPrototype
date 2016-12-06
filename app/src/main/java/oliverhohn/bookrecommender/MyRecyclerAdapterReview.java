@@ -1,7 +1,6 @@
 package oliverhohn.bookrecommender;
 
 import android.content.Context;
-import android.provider.ContactsContract;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,8 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -46,19 +43,19 @@ public class MyRecyclerAdapterReview extends RecyclerView.Adapter<MyRecyclerAdap
         Review review = reviews.get(position);
         int rating = review.getRating();
         if(rating>0){
-            holder.star1.setImageResource(R.drawable.starfilled);
+            holder.star1.setImageResource(R.drawable.starfilled_24);
             holder.star1.setColorFilter(ContextCompat.getColor(context,R.color.colorSecondaryText));
         }if(rating>1){
-            holder.star2.setImageResource(R.drawable.starfilled);
+            holder.star2.setImageResource(R.drawable.starfilled_24);
             holder.star2.setColorFilter(ContextCompat.getColor(context,R.color.colorSecondaryText));
         }if(rating>2){
-            holder.star3.setImageResource(R.drawable.starfilled);
+            holder.star3.setImageResource(R.drawable.starfilled_24);
             holder.star3.setColorFilter(ContextCompat.getColor(context,R.color.colorSecondaryText));
         }if(rating>3){
-            holder.star4.setImageResource(R.drawable.starfilled);
+            holder.star4.setImageResource(R.drawable.starfilled_24);
             holder.star4.setColorFilter(ContextCompat.getColor(context,R.color.colorSecondaryText));
         }if(rating>4){
-            holder.star5.setImageResource(R.drawable.starfilled);
+            holder.star5.setImageResource(R.drawable.starfilled_24);
             holder.star5.setColorFilter(ContextCompat.getColor(context,R.color.colorSecondaryText));
         }
         holder.title.setText(review.getTitle());

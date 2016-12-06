@@ -35,7 +35,7 @@ public class SearchResults extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setTitle("Logged In as:");
-        getSupportActionBar().setSubtitle("Harry Potter @ Hogwarts Library");
+        getSupportActionBar().setSubtitle("Harry Potter @ Hogwarts ");
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

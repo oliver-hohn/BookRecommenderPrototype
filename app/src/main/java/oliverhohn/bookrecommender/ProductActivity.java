@@ -31,6 +31,7 @@ import java.util.ArrayList;
 public class ProductActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private static final String TAG = "ProductActivity";
+    private Book book;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,7 +98,7 @@ public class ProductActivity extends AppCompatActivity
         int position = 0;
         if(intent != null){
             position = intent.getIntExtra("position",0);
-            Book book = Singleton.getInstance().getBooks().get(position);
+            book = Singleton.getInstance().getBooks().get(position);
             bookTitle.setText(book.getTitle());
             bookImage.setImageResource(book.getImage());
             author.setText(Html.fromHtml("from: <u>"+book.getAuthor()+"<u>"));
@@ -226,6 +227,9 @@ public class ProductActivity extends AppCompatActivity
 
     public void onWriteReviewPressed(View view){
         Log.d(TAG, "Write a review pressed");
+        Intent intent = new Intent(getApplicationContext(), ReviewActivity.class);
+        intent.putExtra("fromBook",book.getTitle());
+        startActivity(intent);
     }
 
     public void onLocatePressed(View view){
