@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -21,6 +22,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -62,6 +64,31 @@ public class ProductActivity extends AppCompatActivity
         TextView description = (TextView) findViewById(R.id.descriptionTextView);
         ImageView bookImage = (ImageView) findViewById(R.id.bookImageView);
         description.setMovementMethod(new ScrollingMovementMethod());
+
+        ScrollView parentScrollView = (ScrollView) findViewById(R.id.parentScrollView);
+        parentScrollView.setOnTouchListener(new View.OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Log.v(TAG, "PARENT TOUCH");
+
+                findViewById(R.id.descriptionTextView).getParent()
+                        .requestDisallowInterceptTouchEvent(false);
+                return false;
+            }
+        });
+
+        description.setOnTouchListener(new View.OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Log.v(TAG, "CHILD TOUCH");
+
+                // Disallow the touch request for parent scroll on touch of  child view
+                v.getParent().requestDisallowInterceptTouchEvent(true);
+                return false;
+            }
+        });
 
         addBasket.setPaintFlags(addBasket.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         writeReview.setPaintFlags(writeReview.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
