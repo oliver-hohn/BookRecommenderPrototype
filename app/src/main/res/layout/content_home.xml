@@ -11,7 +11,8 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="oliverhohn.bookrecommender.HomeActivity"
     tools:showIn="@layout/app_bar_home"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/colorTextIcons">
 
     <include layout="@layout/search_bar"
         android:id="@+id/include"

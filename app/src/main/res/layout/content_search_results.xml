@@ -12,7 +12,8 @@
     tools:context="oliverhohn.bookrecommender.SearchResults"
     tools:showIn="@layout/app_bar_search_results"
     android:orientation="vertical"
-    android:weightSum="4">
+    android:weightSum="4"
+    android:background="@color/colorTextIcons">
 
     <include
         layout="@layout/search_bar"

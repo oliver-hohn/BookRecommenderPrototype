@@ -24,4 +24,13 @@
     </string-array>
     <string name="title_activity_search_results">SearchResults</string>
     <string name="look_at"><u>Look At</u></string>
+    <string name="title_activity_product">ProductActivity</string>
+    <string name="back_search"><u>Back to Results</u></string>
+    <string name="back_home"><u>Back Home</u></string>
+    <string name="back_basket"><u>Back to Basket</u></string>
+    <string name="add_basket"><u>ADD TO BASKET</u></string>
+    <string name="write_review"><u>WRITE A REVIEW</u></string>
+    <string name="sortedby"><u>Sorted by: Most Helpful</u></string>
+    <string name="report"><u>Report</u></string>
+    <string name="hide"><u>Hide</u></string>
 </resources>

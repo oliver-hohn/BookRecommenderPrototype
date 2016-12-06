@@ -31,7 +31,11 @@
             android:name=".SearchResults"
             android:label="@string/title_activity_search_results"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="adjustPan" ></activity>
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ProductActivity"
+            android:label="@string/title_activity_product"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

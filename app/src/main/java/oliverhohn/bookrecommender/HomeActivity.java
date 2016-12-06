@@ -63,13 +63,8 @@ public class HomeActivity extends AppCompatActivity
         RecyclerView recyclerView2 = (RecyclerView) findViewById(R.id.recyclerView2);
         //handle enter pressed in search view.
         //set recycler view
-        ArrayList<Book> books = new ArrayList<>();
-        books.add(new Book(R.drawable.book1, "Harry Potter and the\n Philosopher's Stone"));
-        books.add(new Book(R.drawable.book2, "Harry Potter and the\n Chamber of Secrets"));
-        books.add(new Book(R.drawable.book3, "Harry Potter and the\n Half Blood Prince"));
-        books.add(new Book(R.drawable.book4, "Harry Potter and the\n Prisoner of Azkaban"));
-        books.add(new Book(R.drawable.book5, "The Penguin History of the\n United States of America"));
-        MyRecyclerAdapter myRecyclerAdapter = new MyRecyclerAdapter(books);
+
+        MyRecyclerAdapter myRecyclerAdapter = new MyRecyclerAdapter(Singleton.getInstance().getBooks());
         recyclerView1.setAdapter(myRecyclerAdapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView1.setLayoutManager(linearLayoutManager);
@@ -78,6 +73,7 @@ public class HomeActivity extends AppCompatActivity
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
                 Log.d(TAG, "Pressed item at position: "+position);
+                openProduct(position);
             }
         });
 
@@ -90,6 +86,7 @@ public class HomeActivity extends AppCompatActivity
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
                 Log.d(TAG, "Pressed item at position: "+position);
+                openProduct(position);
             }
         });
     }
@@ -179,5 +176,11 @@ public class HomeActivity extends AppCompatActivity
         intent.putExtra("search",search);
         startActivity(intent);
         //go to result page with results for search
+    }
+
+    private void openProduct(int position){
+        Intent intent = new Intent(getApplicationContext(), ProductActivity.class);
+        intent.putExtra("position",position);
+        startActivity(intent);
     }
 }
