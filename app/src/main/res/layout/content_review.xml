@@ -138,7 +138,7 @@
             android:inputType="textMultiLine"
             android:ems="10"
             android:id="@+id/editText2"
-            android:layout_weight="11.36"
+            android:layout_weight="8.53"
             android:background="@drawable/back"
             android:gravity="top|left"
             android:paddingLeft="8dp"
@@ -182,7 +182,7 @@
 
         <Space
             android:layout_width="20px"
-            android:layout_height="50px" />
+            android:layout_height="30px" />
 
         <Button
             android:layout_width="wrap_content"
