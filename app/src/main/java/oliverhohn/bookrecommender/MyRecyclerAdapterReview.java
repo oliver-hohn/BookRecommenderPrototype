@@ -42,7 +42,7 @@ public class MyRecyclerAdapterReview extends RecyclerView.Adapter<MyRecyclerAdap
     }
 
     @Override
-    public void onBindViewHolder(MyHolder holder, final int position) {
+    public void onBindViewHolder(final MyHolder holder, final int position) {
         Review review = reviews.get(position);
         int rating = review.getRating();
         if(rating>0){
@@ -66,12 +66,18 @@ public class MyRecyclerAdapterReview extends RecyclerView.Adapter<MyRecyclerAdap
             @Override
             public void onClick(View view) {
                 myAdapterListener.thumbsUp(position);
+                holder.thumbsUp.setColorFilter(ContextCompat.getColor(context,R.color.colorPrimary));
+                holder.thumbsDown.setColorFilter(ContextCompat.getColor(context,R.color.colorPrimaryText));
+                holder.likeNum.setText(String.valueOf(new Integer(holder.likeNum.getText().toString()).intValue()+1));
             }
         });
         holder.thumbsDown.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 myAdapterListener.thumbsDown(position);
+                holder.thumbsDown.setColorFilter(ContextCompat.getColor(context,R.color.colorPrimary));
+                holder.thumbsUp.setColorFilter(ContextCompat.getColor(context,R.color.colorPrimaryText));
+                holder.dissNum.setText(String.valueOf(new Integer(holder.dissNum.getText().toString()).intValue()+1));
             }
         });
         holder.report.setOnClickListener(new View.OnClickListener() {

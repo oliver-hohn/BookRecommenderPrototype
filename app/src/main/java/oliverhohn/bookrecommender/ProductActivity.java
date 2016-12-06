@@ -122,11 +122,13 @@ public class ProductActivity extends AppCompatActivity
             @Override
             public void report(int position) {
                 Log.d(TAG, "Report pressed at: "+position);
+                showToast("Feature coming soon");
             }
 
             @Override
             public void hide(int position) {
                 Log.d(TAG, "Hide pressed at: "+position);
+                showToast("Feature coming soon");
             }
         }, getApplicationContext());
         recyclerView.setAdapter(myRecyclerAdapterReview);
