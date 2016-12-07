@@ -11,18 +11,24 @@ public class Review {
     private String title;
     private int rating;
     private String description;
+    private int likes;
+    private int diss;
 
-    public Review(String title, int rating, String description){
+    public Review(String title, int rating, String description, int likes, int diss){
         type = type.TEXT;
         this.title = title;
         this.rating = rating;
         this.description = description;
+        this.likes = likes;
+        this.diss = diss;
     }
 
-    public Review(String title, int rating){
+    public Review(String title, int rating, int likes, int diss){
         type = type.AUDIO;
         this.title = title;
         this.rating = rating;
+        this.likes = likes;
+        this.diss = diss;
     }
 
     public Review.type getType() {
@@ -47,6 +53,22 @@ public class Review {
 
     public void setRating(int rating) {
         this.rating = rating;
+    }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
+    public int getDiss() {
+        return diss;
+    }
+
+    public void setDiss(int diss) {
+        this.diss = diss;
     }
 
     public String getDescription() {

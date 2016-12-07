@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -24,6 +26,7 @@ public class MyRecyclerAdapterReview extends RecyclerView.Adapter<MyRecyclerAdap
     private MyAdapterListener myAdapterListener;
     private ArrayList<Review> reviews;
     private Context context;
+    private boolean isPlaying = false;
 
     public MyRecyclerAdapterReview(ArrayList<Review> reviews, MyAdapterListener myAdapterListener, Context context){
         this.reviews = reviews;
@@ -59,13 +62,16 @@ public class MyRecyclerAdapterReview extends RecyclerView.Adapter<MyRecyclerAdap
             holder.star5.setColorFilter(ContextCompat.getColor(context,R.color.colorSecondaryText));
         }
         holder.title.setText(review.getTitle());
+        holder.likeNum.setText(review.getLikes()+"");
+        holder.dissNum.setText(review.getDiss()+"");
         holder.thumbsUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 myAdapterListener.thumbsUp(position);
                 holder.thumbsUp.setColorFilter(ContextCompat.getColor(context,R.color.colorPrimary));
                 holder.thumbsDown.setColorFilter(ContextCompat.getColor(context,R.color.colorPrimaryText));
-                holder.likeNum.setText(String.valueOf(new Integer(holder.likeNum.getText().toString()).intValue()+1));
+                int newLike = new Integer(holder.likeNum.getText().toString()).intValue()+1;
+                holder.likeNum.setText(String.valueOf(newLike));
             }
         });
         holder.thumbsDown.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +80,8 @@ public class MyRecyclerAdapterReview extends RecyclerView.Adapter<MyRecyclerAdap
                 myAdapterListener.thumbsDown(position);
                 holder.thumbsDown.setColorFilter(ContextCompat.getColor(context,R.color.colorPrimary));
                 holder.thumbsUp.setColorFilter(ContextCompat.getColor(context,R.color.colorPrimaryText));
-                holder.dissNum.setText(String.valueOf(new Integer(holder.dissNum.getText().toString()).intValue()+1));
+                int newDiss = new Integer(holder.dissNum.getText().toString()).intValue()+1;
+                holder.dissNum.setText(String.valueOf(newDiss));
             }
         });
         holder.report.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +100,22 @@ public class MyRecyclerAdapterReview extends RecyclerView.Adapter<MyRecyclerAdap
         if(review.getType() == Review.type.TEXT){
             holder.description.setText(review.getDescription());
             holder.description.setVisibility(View.VISIBLE);
+            holder.scrollView.setVisibility(View.VISIBLE);
+            holder.audioLayout.setVisibility(View.GONE);
+        }else{
+            holder.scrollView.setVisibility(View.GONE);
+            holder.audioLayout.setVisibility(View.VISIBLE);
+            holder.playImageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (isPlaying) {
+                        holder.playImageView.setImageResource(R.drawable.pause);
+                    }else{
+                        holder.playImageView.setImageResource(R.drawable.play);
+                    }
+                    isPlaying = !isPlaying;
+                }
+            });
         }
     }
 
@@ -115,6 +138,9 @@ public class MyRecyclerAdapterReview extends RecyclerView.Adapter<MyRecyclerAdap
         protected TextView description;
         protected TextView likeNum;
         protected TextView dissNum;
+        protected ScrollView scrollView;
+        protected LinearLayout audioLayout;
+        protected ImageView playImageView;
         public MyHolder(View itemView) {
             super(itemView);
             star1 = (ImageView) itemView.findViewById(R.id.star1);
@@ -130,6 +156,9 @@ public class MyRecyclerAdapterReview extends RecyclerView.Adapter<MyRecyclerAdap
             description = (TextView) itemView.findViewById(R.id.reviewDescription);
             likeNum = (TextView) itemView.findViewById(R.id.likeNum);
             dissNum = (TextView) itemView.findViewById(R.id.dissNum);
+            scrollView = (ScrollView) itemView.findViewById(R.id.scrollView2);
+            audioLayout = (LinearLayout) itemView.findViewById(R.id.audioLayout);
+            playImageView = (ImageView) itemView.findViewById(R.id.playImageView);
         }
     }
 }

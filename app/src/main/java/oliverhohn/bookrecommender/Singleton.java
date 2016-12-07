@@ -34,9 +34,9 @@ public class Singleton {
     }
 
     private void addReviews(){
-        reviews.add(new Review("The Book was Great!",5,"Best book that I have read in years, the story is much wow. Such doge"));
-        reviews.add(new Review("Ok Book",2,"Didn't think it was that great"));
-        reviews.add(new Review("Bad...",1));
+        reviews.add(new Review("The Book was Great!",5,"Best book that I have read in years, the story is much wow. Such doge",75,1));
+        reviews.add(new Review("Ok Book",2,"Didn't think it was that great",47,3));
+        reviews.add(new Review("Bad...",1,12,25));
     }
 
     public void addBasket(Book book){
