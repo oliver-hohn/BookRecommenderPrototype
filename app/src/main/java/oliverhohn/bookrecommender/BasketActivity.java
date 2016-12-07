@@ -64,7 +64,7 @@ public class BasketActivity extends AppCompatActivity
             }else{
                 addedBook.setVisibility(View.INVISIBLE);
             }
-            if(from.equals("HomeActivity")){
+            if(from.equals("HomeActivity") || from.equals("LocationActivity")){
                 backTextView.setText(Html.fromHtml("<u>Back</u>"));
             }else if(from.equals("SearchActivity")){
                 backTextView.setText(Html.fromHtml("<u>Back to Results</u>"));

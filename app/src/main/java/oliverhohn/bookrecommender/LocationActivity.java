@@ -87,6 +87,9 @@ public class LocationActivity extends AppCompatActivity
         switch (id){
             case R.id.action_basket:
                 Log.d(TAG, "Clicked on basket");
+                Intent intent = new Intent(getApplicationContext(), BasketActivity.class);
+                intent.putExtra("from","LocationActivity");
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
