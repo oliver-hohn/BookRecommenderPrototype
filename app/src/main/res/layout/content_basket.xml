@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="oliverhohn.bookrecommender.BasketActivity"
+    tools:showIn="@layout/app_bar_basket"
+    android:orientation="vertical"
+    android:weightSum="10">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:weightSum="4">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingBottom="8dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/backImageView"
+                android:src="@drawable/left"
+                android:onClick="onBackPressed" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/back_search"
+                android:id="@+id/backTextView"
+                android:textColor="@color/colorPrimaryText"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                android:onClick="onBackPressed" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Added:"
+            android:id="@+id/addedRemoveTextView"
+            android:paddingLeft="8dp"
+            android:textColor="@color/colorPrimaryText"
+            android:layout_weight="2"
+            android:lines="2"
+            android:scrollHorizontally="true"
+            android:ellipsize="end"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/textView17"
+            android:paddingLeft="8dp"
+            android:textColor="@color/colorPrimaryText"
+            android:text="@string/basket"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/basketRecyclerView"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/back"
+        android:visibility="visible"
+        android:layout_weight="6"
+        android:longClickable="false"
+        android:padding="8dp" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Total: $XX.XX (3 items)"
+            android:id="@+id/totalTextView"
+            android:layout_gravity="right"
+            android:padding="8dp"
+            android:textColor="@color/colorPrimaryText" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom|right"
+            android:weightSum="10">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkoutButton"
+                android:text="CHECKOUT"
+                android:textColor="@color/colorTextIcons"
+                android:background="@color/colorAccent"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:layout_weight="4"
+                android:onClick="checkout" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

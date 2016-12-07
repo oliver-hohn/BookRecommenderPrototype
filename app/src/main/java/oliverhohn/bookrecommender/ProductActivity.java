@@ -32,6 +32,7 @@ public class ProductActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private static final String TAG = "ProductActivity";
     private Book book;
+    private int position;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,7 +108,9 @@ public class ProductActivity extends AppCompatActivity
             if(result.equals("HomeActivity")){
                 backTextView.setText(Html.fromHtml("<u>Back</u>"));
             }else if(result.equals("SearchActivity")){
-                backTextView.setText(Html.fromHtml("Back to Results"));
+                backTextView.setText(Html.fromHtml("<u>Back to Results</u>"));
+            }else if(result.equals("Basket")){
+                backTextView.setText(Html.fromHtml("<u>Back to Basket</u>"));
             }
         }
 
@@ -181,6 +184,10 @@ public class ProductActivity extends AppCompatActivity
         switch (id){
             case R.id.action_basket:
                 Log.d(TAG, "Clicked on basket");
+                Intent intent = new Intent(getApplicationContext(), BasketActivity.class);
+                intent.putExtra("from","ProductActivity");
+                intent.putExtra("bookName",book.getTitle());
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -223,6 +230,15 @@ public class ProductActivity extends AppCompatActivity
 
     public void onAddBasketPressed(View view){
         Log.d(TAG, "Add to basket pressed");
+        ((TextView)view).setText("ADDED");
+        ((TextView)view).setEnabled(false);
+
+        Intent intent = new Intent(getApplicationContext(), BasketActivity.class);
+        intent.putExtra("addedBook",book.getTitle());
+        intent.putExtra("from","ProductActivity");
+        intent.putExtra("bookName",book.getTitle());
+        Singleton.getInstance().addBasket(book);
+        startActivity(intent);
     }
 
     public void onWriteReviewPressed(View view){

@@ -35,7 +35,10 @@
             android:textColor="@color/colorPrimaryText"
             android:textStyle="bold"
             android:layout_gravity="center_vertical"
-            android:onClick="onBackPressed" />
+            android:onClick="onBackPressed"
+            android:lines="1"
+            android:scrollHorizontally="true"
+            android:ellipsize="end"/>
     </LinearLayout>
 
     <LinearLayout

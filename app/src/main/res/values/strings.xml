@@ -43,4 +43,6 @@
     <string name="title_activity_basket">BasketActivity</string>
     <string name="title_activity_location">LocationActivity</string>
     <string name="report_missing_text">Reported Book Missing.\nThank you</string>
+    <string name="basket"><u>Basket:</u></string>
+    <string name="purchased_books">Thank you for your purchase.\nShow the below purchase ID at Checkout:\n 101111</string>
 </resources>

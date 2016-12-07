@@ -49,9 +49,14 @@
         <activity
             android:name=".LocationActivity"
             android:label="@string/title_activity_location"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name=".BasketActivity"
+            android:label="@string/title_activity_basket"
             android:theme="@style/AppTheme"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"
+            ></activity>
     </application>
 
 </manifest>

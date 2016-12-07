@@ -9,6 +9,7 @@ public class Singleton {
     private static Singleton instance;
     private ArrayList<Book> books;
     private ArrayList<Review> reviews;
+    private ArrayList<Book> basket;
     public static Singleton getInstance(){
         if(instance == null){
             instance = new Singleton();
@@ -19,6 +20,7 @@ public class Singleton {
     private Singleton(){
         books = new ArrayList<>();
         reviews = new ArrayList<>();
+        basket = new ArrayList<>();
         addBooks();
         addReviews();
     }
@@ -35,6 +37,22 @@ public class Singleton {
         reviews.add(new Review("The Book was Great!",5,"Best book that I have read in years, the story is much wow. Such doge"));
         reviews.add(new Review("Ok Book",2,"Didn't think it was that great"));
         reviews.add(new Review("Bad...",1));
+    }
+
+    public void addBasket(Book book){
+        basket.add(book);
+    }
+
+    public void removeBasket(Book book){
+        basket.remove(book);
+    }
+
+    public void removeBasket(int position){
+        basket.remove(position);
+    }
+
+    public ArrayList<Book> getBasket(){
+        return basket;
     }
 
     public ArrayList<Book> getBooks() {
