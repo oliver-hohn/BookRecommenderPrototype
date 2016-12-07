@@ -238,7 +238,6 @@ public class ReviewActivity extends AppCompatActivity
             playView.setVisibility(View.INVISIBLE);
         }else{
             imageView.setImageResource(R.drawable.microphone);
-            showToast("Recording has been saved");
             textView.setText("Recording has been saved");
             playView.setVisibility(View.VISIBLE);
         }
