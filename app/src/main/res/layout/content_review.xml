@@ -57,7 +57,11 @@
             android:id="@+id/givingReviewForView"
             android:textColor="@color/colorPrimaryText"
             android:textStyle="bold"
-            android:layout_weight="1.5" />
+            android:layout_weight="1.5"
+            android:lines="2"
+            android:scrollHorizontally="true"
+            android:ellipsize="end"
+            />
 
         <TextView
             android:layout_width="wrap_content"

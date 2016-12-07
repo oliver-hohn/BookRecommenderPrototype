@@ -61,7 +61,10 @@
                 android:ems="10"
                 android:id="@+id/usernameField"
                 android:background="@color/colorTextIcons"
-                android:layout_weight="0.9" />
+                android:layout_weight="0.9"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:padding="4dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -87,7 +90,10 @@
                 android:id="@+id/passwordField"
                 android:background="@color/colorTextIcons"
                 android:layout_weight="0.9"
-                android:inputType="textWebPassword" />
+                android:inputType="textWebPassword"
+                android:paddingRight="4dp"
+                android:paddingLeft="4dp"
+                android:padding="4dp" />
         </LinearLayout>
 
     </LinearLayout>
