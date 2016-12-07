@@ -75,17 +75,17 @@
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
             android:paddingRight="8dp"
-            android:paddingLeft="8dp" />
+            android:paddingLeft="8dp"
+            android:maxLines="1" />
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="53dp"
             android:layout_gravity="center"
             android:gravity="center"
             android:paddingBottom="8dp"
-            android:paddingTop="8dp"
-            android:layout_weight="1">
+            android:paddingTop="8dp">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -134,11 +134,11 @@
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:inputType="textMultiLine"
             android:ems="10"
             android:id="@+id/editText2"
-            android:layout_weight="8.53"
+            android:layout_weight="9.5"
             android:background="@drawable/back"
             android:gravity="top|left"
             android:paddingLeft="8dp"
@@ -153,7 +153,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="52dp"
+            android:layout_height="45dp"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
             android:background="@drawable/back"
@@ -172,11 +172,12 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/imageView10"
+                android:id="@+id/recordImageView"
                 android:src="@drawable/microphone"
                 android:layout_weight="1"
                 android:layout_gravity="right"
-                android:tint="@color/colorPrimary" />
+                android:tint="@color/colorPrimary"
+                android:onClick="onRecordPressed" />
 
         </LinearLayout>
 

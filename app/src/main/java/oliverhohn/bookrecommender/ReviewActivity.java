@@ -2,6 +2,7 @@ package oliverhohn.bookrecommender;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v4.content.ContextCompat;
 import android.text.Html;
 import android.support.design.widget.NavigationView;
@@ -21,9 +22,12 @@ import android.widget.Scroller;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 public class ReviewActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private final static String TAG = "ReviewActivity";
+    private boolean canRecord = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -220,5 +224,21 @@ public class ReviewActivity extends AppCompatActivity
         Log.d(TAG,"On submit pressed");
         showToast("Review has been submitted");
         onBackPressed();
+    }
+
+    public void onRecordPressed(View view){
+        Log.d(TAG, "Can record pressed");
+        ImageView imageView = (ImageView) findViewById(R.id.recordImageView);
+        TextView textView = (TextView) findViewById(R.id.textView14);
+        if(canRecord){
+            imageView.setImageResource(R.drawable.stop);
+            showToast("Recording");
+            textView.setText("Record a Review (Optional)");
+        }else{
+            imageView.setImageResource(R.drawable.microphone);
+            showToast("Recording has been saved");
+            textView.setText("Recording has been saved");
+        }
+        canRecord = !canRecord;
     }
 }
