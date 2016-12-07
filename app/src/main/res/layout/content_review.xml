@@ -158,7 +158,7 @@
             android:paddingBottom="8dp"
             android:background="@drawable/back"
             android:gravity="center_vertical"
-            android:weightSum="3">
+            android:weightSum="4">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -168,6 +168,15 @@
                 android:id="@+id/textView14"
                 android:layout_weight="2"
                 android:paddingLeft="8dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView6"
+                android:layout_weight="1"
+                android:src="@drawable/play"
+                android:tint="@color/colorPrimary"
+                android:visibility="invisible" />
 
             <ImageView
                 android:layout_width="wrap_content"

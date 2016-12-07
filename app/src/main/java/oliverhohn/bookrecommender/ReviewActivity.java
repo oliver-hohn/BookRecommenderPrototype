@@ -230,15 +230,22 @@ public class ReviewActivity extends AppCompatActivity
         Log.d(TAG, "Can record pressed");
         ImageView imageView = (ImageView) findViewById(R.id.recordImageView);
         TextView textView = (TextView) findViewById(R.id.textView14);
+        ImageView playView = (ImageView) findViewById(R.id.imageView6);
         if(canRecord){
             imageView.setImageResource(R.drawable.stop);
             showToast("Recording");
             textView.setText("Record a Review (Optional)");
+            playView.setVisibility(View.INVISIBLE);
         }else{
             imageView.setImageResource(R.drawable.microphone);
             showToast("Recording has been saved");
             textView.setText("Recording has been saved");
+            playView.setVisibility(View.VISIBLE);
         }
         canRecord = !canRecord;
+    }
+
+    public void onPlayPressed(View view){
+
     }
 }
