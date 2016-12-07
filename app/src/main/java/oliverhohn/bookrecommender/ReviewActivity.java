@@ -28,6 +28,7 @@ public class ReviewActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private final static String TAG = "ReviewActivity";
     private boolean canRecord = true;
+    private boolean playing = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -236,15 +237,25 @@ public class ReviewActivity extends AppCompatActivity
             showToast("Recording");
             textView.setText("Record a Review (Optional)");
             playView.setVisibility(View.INVISIBLE);
+            playView.setEnabled(false);
+            playView.setImageResource(R.drawable.play);
         }else{
             imageView.setImageResource(R.drawable.microphone);
             textView.setText("Recording has been saved");
             playView.setVisibility(View.VISIBLE);
+            playView.setEnabled(true);
         }
         canRecord = !canRecord;
     }
 
     public void onPlayPressed(View view){
+       // showToast("Playing Review");
+        playing = !playing;
+        if(playing){
+            ((ImageView)view).setImageResource(R.drawable.pause);
+        }else{
+            ((ImageView)view).setImageResource(R.drawable.play);
 
+        }
     }
 }

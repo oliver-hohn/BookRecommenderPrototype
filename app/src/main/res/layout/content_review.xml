@@ -176,7 +176,8 @@
                 android:layout_weight="1"
                 android:src="@drawable/play"
                 android:tint="@color/colorPrimary"
-                android:visibility="invisible" />
+                android:visibility="invisible"
+                android:onClick="onPlayPressed" />
 
             <ImageView
                 android:layout_width="wrap_content"
