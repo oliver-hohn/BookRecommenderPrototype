@@ -106,7 +106,7 @@
                         android:text="description"
                         android:id="@+id/descriptionTextView"
                         android:textColor="@color/colorPrimaryText"
-                        android:maxLines="7"
+                        android:maxLines="5"
                         android:scrollbars = "vertical"
                         />
 

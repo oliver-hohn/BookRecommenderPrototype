@@ -22,6 +22,13 @@
         <item>About</item>
         <item>Log Out</item>
     </string-array>
+    <string-array name="navigation_to_book">
+        <item>Turn right in 10 meters</item>
+        <item>Turn left in 5 meters</item>
+        <item>Go up the stairs</item>
+        <item>Go forward for 15 meters</item>
+        <item>You have reached your destination!</item>
+    </string-array>
     <string name="title_activity_search_results">SearchResults</string>
     <string name="look_at"><u>Look At</u></string>
     <string name="title_activity_product">ProductActivity</string>
@@ -34,4 +41,6 @@
     <string name="report"><u>Report</u></string>
     <string name="hide"><u>Hide</u></string>
     <string name="title_activity_basket">BasketActivity</string>
+    <string name="title_activity_location">LocationActivity</string>
+    <string name="report_missing_text">Reported Book Missing.\nThank you</string>
 </resources>
