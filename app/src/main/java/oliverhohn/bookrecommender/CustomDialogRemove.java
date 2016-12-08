@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.TextClock;
+import android.widget.TextView;
 
 /**
  * Created by Oliver on 08/12/2016.
@@ -16,11 +18,13 @@ import android.widget.Button;
 public class CustomDialogRemove extends Dialog {
     private View.OnClickListener yesOnClick;
     private View.OnClickListener noOnClick;
+    private String bookTitle;
     private int position;
-    public CustomDialogRemove(Activity a, View.OnClickListener yes, View.OnClickListener no) {
+    public CustomDialogRemove(Activity a, View.OnClickListener yes, View.OnClickListener no, String bookTitle) {
         super(a);
         yesOnClick = yes;
         noOnClick = no;
+        this.bookTitle = bookTitle;
     }
 
     @Override
@@ -28,11 +32,13 @@ public class CustomDialogRemove extends Dialog {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.custom_remove_dialog);
-        Button yes = (Button) findViewById(R.id.yesButton);
-        Button no = (Button) findViewById(R.id.noButton);
+        TextView yes = (TextView) findViewById(R.id.yesTextView);
+        TextView no = (TextView) findViewById(R.id.noTextView);
+        TextView remove = (TextView) findViewById(R.id.removeTextView);
+        remove.setText("Are you sure you want to remove: "+bookTitle+"?");
 
         yes.setOnClickListener(yesOnClick);
-         no.setOnClickListener(noOnClick);
+        no.setOnClickListener(noOnClick);
 
     }
 }

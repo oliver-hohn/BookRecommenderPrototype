@@ -118,7 +118,7 @@ public class BasketActivity extends AppCompatActivity
                         Log.d(TAG, "Dont remove");
                         dissmiss();
                     }
-                });
+                }, Singleton.getInstance().getBasket().get(position).getTitle());
                 customDialogRemove.show();
 
             }

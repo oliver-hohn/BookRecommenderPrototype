@@ -21,27 +21,34 @@
         android:layout_height="wrap_content"
         android:gravity="center">
 
-        <Button
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="No"
-            android:id="@+id/noButton"
-            android:background="@color/colorPrimary"
+            android:id="@+id/noTextView"
             android:textColor="@color/colorTextIcons"
-            android:padding="8dp" />
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp" />
 
         <Space
             android:layout_width="100px"
             android:layout_height="20px" />
 
-        <Button
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Yes"
-            android:id="@+id/yesButton"
+            android:id="@+id/yesTextView"
             android:textColor="@color/colorTextIcons"
-            android:background="@color/colorPrimary"
-            android:padding="8dp" />
+            android:paddingLeft="20dp"
+            android:paddingTop="16dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="16dp" />
+
     </LinearLayout>
 
 </LinearLayout>

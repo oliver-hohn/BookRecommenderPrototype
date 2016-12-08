@@ -7,12 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * Created by Oliver on 07/12/2016.
  */
 public class CustomDialogClass extends Dialog implements android.view.View.OnClickListener {
-    public Button ok;
+    public TextView ok;
 
     public CustomDialogClass(Activity a) {
         super(a);
@@ -23,7 +24,7 @@ public class CustomDialogClass extends Dialog implements android.view.View.OnCli
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.custom_dialog);
-        ok = (Button) findViewById(R.id.okButton);
+        ok = (TextView) findViewById(R.id.okTextView);
         ok.setOnClickListener(this);
 
     }
