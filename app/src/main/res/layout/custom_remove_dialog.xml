@@ -27,7 +27,8 @@
             android:text="No"
             android:id="@+id/noButton"
             android:background="@color/colorPrimary"
-            android:textColor="@color/colorTextIcons" />
+            android:textColor="@color/colorTextIcons"
+            android:padding="8dp" />
 
         <Space
             android:layout_width="100px"
@@ -39,7 +40,8 @@
             android:text="Yes"
             android:id="@+id/yesButton"
             android:textColor="@color/colorTextIcons"
-            android:background="@color/colorPrimary" />
+            android:background="@color/colorPrimary"
+            android:padding="8dp" />
     </LinearLayout>
 
 </LinearLayout>
