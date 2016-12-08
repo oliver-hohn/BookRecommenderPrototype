@@ -27,6 +27,7 @@ public class BasketActivity extends AppCompatActivity
     private static final String TAG = "BasketActivity";
     private MyRecyclerAdapterBasket myRecyclerAdapterBasket;
     private RecyclerView recyclerView;
+    private CustomDialogRemove customDialogRemove;
 
 
     @Override
@@ -88,20 +89,38 @@ public class BasketActivity extends AppCompatActivity
 
         myRecyclerAdapterBasket = new MyRecyclerAdapterBasket(basket, new MyRecyclerAdapterBasket.MyAdapterListener() {
             @Override
-            public void removeBook(int position) {
+            public void removeBook(final int position) {
                 Log.d(TAG, "Need to remove book: "+position);
-                Book book = Singleton.getInstance().getBasket().get(position);
-                Singleton.getInstance().removeBasket(position);
-                //myRecyclerAdapterBasket.notifyItemChanged(position);
-                addedRemoveTextView.setText("Removed: "+book.getTitle()+" from your Basket");
-                addedRemoveTextView.setVisibility(View.VISIBLE);
 
-                if(Singleton.getInstance().getBasket().size() > 0) {
-                    totalTextView.setText("Price: $XX.XX (" + Singleton.getInstance().getBasket().size() + " items)");
-                }else{
-                    totalTextView.setText("Add Books to your basket!");
-                }
-                updateRecycler(position);
+
+                customDialogRemove = new CustomDialogRemove(BasketActivity.this, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Log.d(TAG, "Remove book: "+position);
+
+                        Book book = Singleton.getInstance().getBasket().get(position);
+                        Singleton.getInstance().removeBasket(position);
+                        //myRecyclerAdapterBasket.notifyItemChanged(position);
+                        addedRemoveTextView.setText("Removed: "+book.getTitle()+" from your Basket");
+                        addedRemoveTextView.setVisibility(View.VISIBLE);
+
+                        if(Singleton.getInstance().getBasket().size() > 0) {
+                            totalTextView.setText("Price: $XX.XX (" + Singleton.getInstance().getBasket().size() + " items)");
+                        }else{
+                            totalTextView.setText("Add Books to your basket!");
+                        }
+                        updateRecycler(position);
+                        dissmiss();
+                    }
+                }, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Log.d(TAG, "Dont remove");
+                        dissmiss();
+                    }
+                });
+                customDialogRemove.show();
+
             }
 
             @Override
@@ -207,5 +226,9 @@ public class BasketActivity extends AppCompatActivity
             CustomDialogPurchase customDialogPurchase = new CustomDialogPurchase(this);
             customDialogPurchase.show();
         }
+    }
+
+    private void dissmiss(){
+        customDialogRemove.dismiss();
     }
 }
