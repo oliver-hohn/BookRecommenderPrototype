@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -83,7 +84,9 @@ public class HomeActivity extends AppCompatActivity
             }
         });
 
-        recyclerView2.setAdapter(myRecyclerAdapter);
+        final ArrayList<Book> books1 = new ArrayList<>(books);
+        Collections.reverse(books1);
+        recyclerView2.setAdapter(new MyRecyclerAdapter(books1));
         LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
 
         recyclerView2.setLayoutManager(linearLayoutManager2);
@@ -92,7 +95,7 @@ public class HomeActivity extends AppCompatActivity
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
                 Log.d(TAG, "Pressed item at position: "+position);
-                openProduct(position);
+                openProduct(books1.size()-position-1);
             }
         });
     }

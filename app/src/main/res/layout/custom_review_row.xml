@@ -97,7 +97,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/scrollView2"
         android:paddingLeft="16dp"
-        android:visibility="visible">
+        android:visibility="visible"
+        android:paddingRight="16dp">
 
         <TextView
             android:layout_width="wrap_content"
