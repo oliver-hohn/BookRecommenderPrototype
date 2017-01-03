@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="5"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Review #1"
+            android:id="@+id/reviewTitle"
+            android:padding="8dp"
+            android:textColor="@color/colorPrimaryText"
+            android:textStyle="bold"
+            android:layout_weight="3" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/report"
+            android:id="@+id/reportView"
+            android:textColor="@color/colorPrimaryText"
+            android:layout_gravity="center|right"
+            android:padding="8dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/hide"
+            android:id="@+id/hideView"
+            android:textColor="@color/colorPrimaryText"
+            android:layout_gravity="center|right"
+            android:layout_weight="1"
+            android:paddingLeft="8dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingLeft="16dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/star1"
+            android:src="@drawable/star_24"
+            android:tint="@color/colorSecondaryText" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/star2"
+            android:src="@drawable/star_24"
+            android:tint="@color/colorSecondaryText" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/star3"
+            android:src="@drawable/star_24"
+            android:tint="@color/colorSecondaryText" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/star4"
+            android:src="@drawable/star_24"
+            android:tint="@color/colorSecondaryText" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/star5"
+            android:src="@drawable/star_24"
+            android:tint="@color/colorSecondaryText" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView2"
+        android:paddingLeft="16dp"
+        android:visibility="visible"
+        android:paddingRight="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/reviewDescription"
+            android:paddingLeft="2dp"
+            android:textColor="@color/colorSecondaryText"
+            android:visibility="gone" />
+    </ScrollView>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:weightSum="7"
+        android:visibility="gone"
+        android:id="@+id/audioLayout">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Audio Review:"
+            android:id="@+id/playTextView"
+            android:paddingRight="8dp"
+            android:layout_weight="2.5"
+            android:layout_gravity="center"
+            android:textColor="@color/colorPrimaryText" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/playImageView"
+            android:layout_gravity="center"
+            android:src="@drawable/play"
+            android:tint="@color/colorAccent"
+            android:layout_weight="1" />
+
+        <SeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBar"
+            android:layout_gravity="center"
+            android:layout_weight="3"
+            android:progress="30" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="01:32"
+            android:id="@+id/timeTextView"
+            android:layout_gravity="center"
+            android:textColor="@color/colorPrimaryText" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="12"
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Was this Review Helpful?"
+            android:id="@+id/textView8"
+            android:layout_weight="6"
+            android:padding="8dp"
+            android:textColor="@color/colorPrimaryText"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="100"
+            android:id="@+id/likeNum"
+            android:layout_weight="1"
+            android:textColor="@color/colorPrimaryText"
+            android:layout_gravity="center" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/thumbsup"
+            android:layout_weight="2"
+            android:src="@drawable/thumbsup"
+            android:paddingRight="8dp"
+            android:layout_gravity="center"
+            android:tint="@color/colorPrimaryText"
+            android:paddingLeft="8dp" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/thumbsdown"
+            android:layout_weight="2"
+            android:src="@drawable/thumbsdown"
+            android:paddingRight="8dp"
+            android:layout_gravity="center"
+            android:tint="@color/colorPrimaryText"
+            android:paddingLeft="8dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="0"
+            android:id="@+id/dissNum"
+            android:layout_weight="1"
+            android:textColor="@color/colorAccent"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
+
+</LinearLayout>

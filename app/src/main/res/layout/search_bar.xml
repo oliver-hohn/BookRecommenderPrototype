@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/fab_margin"
+    android:paddingBottom="@dimen/fab_margin"
+    android:background="@drawable/back">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchTextView"
+        android:layout_weight="10"
+        android:layout_gravity="center"
+        android:background="@drawable/back"
+        android:maxLines="1"
+        android:layout_marginLeft="@dimen/fab_margin" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:src="@drawable/search"
+        android:layout_weight="0.05"
+        android:layout_gravity="center"
+        android:tint="@color/colorAccent"
+        android:paddingRight="5dp"
+        android:onClick="onSearchPressed"
+        android:paddingLeft="5dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView3"
+        android:src="@drawable/barcode"
+        android:layout_weight="0.05"
+        android:layout_gravity="center"
+        android:paddingRight="5dp"
+        android:paddingLeft="5dp"
+        android:onClick="onBarcodePressed" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingRight="10dp"
+        android:paddingLeft="5dp"
+        android:onClick="onFilterPressed">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView4"
+            android:src="@drawable/filter"
+            android:layout_weight="0.50"
+            android:tint="#2ecc71"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Filter"
+            android:id="@+id/textView4"
+            android:layout_weight="0.50"
+            android:textColor="#2ecc71" />
+    </LinearLayout>
+
+</LinearLayout>
